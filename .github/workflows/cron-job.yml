@@ -19,8 +19,8 @@ jobs:
           pwd 
           ls -l
           mkdir /home/runner/work/cron-test/cron-test.yaml
-          ls -l
           cd /home/runner/work/cron-test
+          ls -l
           pwd
 
       - uses: shallwefootball/s3-upload-action@master
