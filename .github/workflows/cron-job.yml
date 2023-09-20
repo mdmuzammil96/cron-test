@@ -18,9 +18,21 @@ jobs:
           ls -l
           pwd
 
-      - uses: shallwefootball/s3-upload-action@master
-        with:
-          aws_key_id: AKIA55UKWVCCHMC6YFXD
-          aws_secret_access_key: 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
-          aws_bucket: cron-test
-          source_dir: /home/runner/work/cron-test/cron-test
+      # - uses: shallwefootball/s3-upload-action@master
+      #   with:
+      #     aws_key_id: AKIA55UKWVCCHMC6YFXD
+      #     aws_secret_access_key: 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
+      #     aws_bucket: cron-test
+      #     source_dir: /home/runner/work/cron-test/cron-test
+
+      - name: Install AWS CLI
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y awscli
+
+      - name: Upload to S3
+        run: |
+          aws s3 cp /home/runner/work/cron-test/cron-test/README.md s3://cron-test/s3/
+        env:
+          AWS_ACCESS_KEY_ID: AKIA55UKWVCCHMC6YFXD
+          AWS_SECRET_ACCESS_KEY: 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
