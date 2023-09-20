@@ -15,12 +15,16 @@ jobs:
 
       - name: Install dependencies
         id: dependencies
-        shell: bash
-        run: npm install --force
+        run: |
+          sudo apt update
+          sudo apt install nodejs
+          node -v
+          sudo apt install npm
+          npm install --force
+          npm i dotenv
 
       - name: Run Test 
         id: Test
-        shell: bash
         run: npm run test-cases:dev
 
 
