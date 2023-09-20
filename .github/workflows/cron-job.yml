@@ -18,25 +18,15 @@ jobs:
           ls -l
           pwd
 
-
-      - name: S3 Uploader for GitHub Actions
-        uses: Noelware/s3-action@1.3.1
+      - name: Upload Report to AWS S3 Bucket
+        uses: shallwefootball/s3-upload-action@master
+        id: S3
         with:
-          directories: /home/runner/work/cron-test/cron-test/
-          endpoint: https://s3.console.aws.amazon.com
-          bucket: cron-test
-          access-key: ${{ secrets.AWS_KEY_ID }}
-          secret-key: ${{ secrets.AWS_ACCESS_KEY }}
-
-      # - name: Upload Report to AWS S3 Bucket
-      #   uses: shallwefootball/s3-upload-action@master
-      #   id: S3
-      #   with:
-      #     aws_key_id: ${{secrets.AWS_KEY_ID}}
-      #     aws_secret_access_key: ${{secrets.AWS_ACCESS_KEY}}
-      #     aws_bucket: cron-test
-      #     source_dir: '/home/runner/work/cron-test/cron-test/'
-      #     destination_dir: 's3/'
+          aws_key_id: ${{secrets.AWS_KEY_ID}}
+          aws_secret_access_key: ${{secrets.AWS_ACCESS_KEY}}
+          aws_bucket: cron-test
+          source_dir: '/home/runner/work/cron-test/cron-test/'
+          destination_dir: 's3/'
 
       # - uses: shallwefootball/s3-upload-action@master
       #   with:
