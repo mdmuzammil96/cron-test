@@ -1,8 +1,8 @@
 name: "E2E Test and Push to S3"
 
 on:
-  schedule:
-    - cron: '* * * * *'  # runs at every 1 minute
+  # schedule:
+  #   - cron: '* * * * *'  # runs at every 1 minute
   workflow_dispatch:
 
 jobs:
