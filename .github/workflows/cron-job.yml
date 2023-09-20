@@ -15,7 +15,7 @@ jobs:
 
       - name: create dir
         shell: bash
-        run: vi cron-test.yaml
+        run: mkdir cron-test
 
       - name: check dir
         shell: bash
@@ -26,4 +26,4 @@ jobs:
           aws_key_id: AKIA55UKWVCCHMC6YFXD
           aws_secret_access_key: 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
           aws_bucket: cron-test
-          source_dir: cron-test.yaml
+          source_dir: cron-test
