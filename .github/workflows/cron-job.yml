@@ -17,7 +17,7 @@ jobs:
         run: |
           ls -l
           pwd
-          vi /home/runner/work/cron-test/cron-test/test.yaml
+          vim /home/runner/work/cron-test/cron-test/test.yaml
           cd /home/runner/work/cron-test/cron-test
           ls -l
           pwd
