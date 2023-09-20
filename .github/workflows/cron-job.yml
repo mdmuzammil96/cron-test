@@ -18,7 +18,7 @@ jobs:
         run: |
           pwd 
           ls -l
-          mkdir cron-test
+          mkdir /home/runner/work/cron-test/cron-test/cron-test.yaml
           ls -l
           
       - name: check dir
@@ -32,4 +32,4 @@ jobs:
           aws_key_id: AKIA55UKWVCCHMC6YFXD
           aws_secret_access_key: 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
           aws_bucket: cron-test
-          source_dir: cron-test
+          source_dir: /home/runner/work/cron-test/cron-test/cron-test.yaml
