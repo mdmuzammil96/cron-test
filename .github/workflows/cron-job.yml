@@ -14,11 +14,13 @@ jobs:
         uses: actions/checkout@v2
 
       - name: create dir
-        shell: bash
         run: |
           ls -l
           pwd
+          vi /home/runner/work/cron-test/cron-test/test.yaml
+          cd /home/runner/work/cron-test/cron-test
           ls -l
+          pwd
 
       - uses: shallwefootball/s3-upload-action@master
         with:
