@@ -1,8 +1,8 @@
 name: "E2E Test and Push to S3"
 
 on:
-  schedule:
-    - cron: '* * * * *'  # runs at every 1 minute
+  # schedule:
+  #   - cron: '* * * * *'  # runs at every 1 minute
   workflow_dispatch:
 
 jobs:
@@ -12,30 +12,44 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-
-      - name: create dir
-        run: |
-          pwd
-          ls -l
-          cd /home/runner/work/cron-test/cron-test/
-          touch test.yaml
-          ls -l
-          pwd
-
-      - uses: keithweaver/aws-s3-github-action@v1.0.0
         with:
-          command: cp
-          source: /home/runner/work/cron-test/cron-test/README.md
-          destination: s3://cron-test/dev/
-          aws_access_key_id: ${{ secrets.AWS_KEY_ID }}
-          aws_secret_access_key: ${{ secrets.AWS_ACCESS_KEY }}
-          aws_region: us-east-2
+          repository: feat/playwright
 
-      - uses: keithweaver/aws-s3-github-action@v1.0.0
-        with:
-          command: cp
-          source: /home/runner/work/cron-test/cron-test/test.yaml
-          destination: s3://cron-test/dev/
-          aws_access_key_id: ${{ secrets.AWS_KEY_ID }}
-          aws_secret_access_key: ${{ secrets.AWS_ACCESS_KEY }}
-          aws_region: us-east-2
+      - name: Install dependencies
+        id: dependencies
+        shell: bash
+        run: npm install --force
+
+      - name: Run Test 
+        id: Test
+        shell: bash
+        run: npm run test-cases:dev
+
+
+
+      # - name: create dir
+      #   run: |
+      #     pwd
+      #     ls -l
+      #     cd /home/runner/work/cron-test/cron-test/
+      #     touch test.yaml
+      #     ls -l
+      #     pwd
+
+      # - uses: keithweaver/aws-s3-github-action@v1.0.0
+      #   with:
+      #     command: cp
+      #     source: /home/runner/work/cron-test/cron-test/README.md
+      #     destination: s3://cron-test/dev/
+      #     aws_access_key_id: ${{ secrets.AWS_KEY_ID }}
+      #     aws_secret_access_key: ${{ secrets.AWS_ACCESS_KEY }}
+      #     aws_region: us-east-2
+
+      # - uses: keithweaver/aws-s3-github-action@v1.0.0
+      #   with:
+      #     command: cp
+      #     source: /home/runner/work/cron-test/cron-test/test.yaml
+      #     destination: s3://cron-test/dev/
+      #     aws_access_key_id: ${{ secrets.AWS_KEY_ID }}
+      #     aws_secret_access_key: ${{ secrets.AWS_ACCESS_KEY }}
+      #     aws_region: us-east-2
