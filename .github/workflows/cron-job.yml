@@ -18,9 +18,9 @@ jobs:
           ls -l
           pwd
 
-      # - uses: shallwefootball/s3-upload-action@master
-      #   with:
-      #     aws_key_id: AKIA55UKWVCCHMC6YFXD
-      #     aws_secret_access_key: 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
-      #     aws_bucket: cron-test
-      #     source_dir: /home/runner/work/cron-test/
+      - uses: shallwefootball/s3-upload-action@master
+        with:
+          aws_key_id: AKIA55UKWVCCHMC6YFXD
+          aws_secret_access_key: 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
+          aws_bucket: cron-test
+          source_dir: /home/runner/work/cron-test/cron-test
