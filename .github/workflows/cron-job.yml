@@ -20,6 +20,7 @@ jobs:
           ls -l
           mkdir /home/runner/work/cron-test/cron-test/cron-test.yaml
           ls -l
+          pwd
           
       - name: check dir
         shell: bash
