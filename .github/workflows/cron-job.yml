@@ -1,0 +1,21 @@
+name: "E2E Test and Push to S3"
+
+on:
+  schedule:
+    - cron: '5 * * * *'  # Define your cron schedule here (runs at every 5 minutes)
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: create dir
+        id: create
+        run: mkdir cron-test
+
+      - name: check dir
+        id: check
+        run: ls -l
