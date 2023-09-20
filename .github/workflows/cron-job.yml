@@ -2,7 +2,7 @@ name: "E2E Test and Push to S3"
 
 on:
   schedule:
-    - cron: '*/5 * * * *'  # runs at every 5 minutes
+    - cron: '* * * * *'  # runs at every 1 minute
   workflow_dispatch:
 
 jobs:
@@ -14,7 +14,14 @@ jobs:
         uses: actions/checkout@v2
 
       - name: create dir
-        run: mkdir cron-test
+        run: vi cron-test.yaml
 
       - name: check dir
         run: ls -l
+
+      - uses: shallwefootball/s3-upload-action@master
+        with:
+          aws_key_id: AKIA55UKWVCCHMC6YFXD
+          aws_secret_access_key: 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
+          aws_bucket: cron-test
+          source_dir: cron-test.yaml
