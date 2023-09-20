@@ -25,7 +25,7 @@ jobs:
           aws_key_id: ${{secrets.AWS_KEY_ID}}
           aws_secret_access_key: ${{secrets.AWS_ACCESS_KEY}}
           aws_bucket: cron-test
-          source_dir: /home/runner/work/cron-test/cron-test/README.md
+          source_dir: /home/runner/work/cron-test/cron-test/
           destination_dir: s3/
 
       # - uses: shallwefootball/s3-upload-action@master
