@@ -16,12 +16,12 @@ jobs:
       - name: create dir
         shell: bash
         run: |
-          pwd 
-          ls -l
-          mkdir /home/runner/work/cron-test/cron-test.yaml
-          cd /home/runner/work/cron-test
-          ls -l
           pwd
+          ls -l
+          # mkdir /home/runner/work/cron-test/cron-test.yaml
+          # cd /home/runner/work/cron-test
+          # ls -l
+          # pwd
 
       - uses: shallwefootball/s3-upload-action@master
         with:
