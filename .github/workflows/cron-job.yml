@@ -17,17 +17,16 @@ jobs:
         run: |
           pwd
           ls -l
-          mkdir /home/runner/work/cron-test/cron-test/test-cron
           cd /home/runner/work/cron-test/cron-test/
+          vi test.md
           ls -l
           pwd
 
       - uses: keithweaver/aws-s3-github-action@v1.0.0
         with:
           command: cp
-          source: /home/runner/work/cron-test/cron-test/README.md
+          source: /home/runner/work/cron-test/cron-test/*
           destination: s3://cron-test/dev/
           aws_access_key_id: ${{ secrets.AWS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_ACCESS_KEY }}
           aws_region: us-east-2
-      
