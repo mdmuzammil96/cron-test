@@ -18,7 +18,7 @@ jobs:
           pwd
           ls -l
           cd /home/runner/work/cron-test/cron-test/
-          vi test.md
+          touch test.yaml
           ls -l
           pwd
 
