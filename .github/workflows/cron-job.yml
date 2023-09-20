@@ -18,19 +18,14 @@ jobs:
         run: |
           pwd 
           ls -l
-          mkdir /home/runner/work/cron-test/cron-test/cron-test.yaml
+          mkdir /home/runner/work/cron-test/cron-test.yaml
           ls -l
+          cd /home/runner/work/cron-test
           pwd
-          
-      - name: check dir
-        shell: bash
-        run : |
-            ls -l
-            pwd
 
       - uses: shallwefootball/s3-upload-action@master
         with:
           aws_key_id: AKIA55UKWVCCHMC6YFXD
           aws_secret_access_key: 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
           aws_bucket: cron-test
-          source_dir: /home/runner/work/cron-test/cron-test/cron-test.yaml
+          source_dir: /home/runner/work/cron-test/
