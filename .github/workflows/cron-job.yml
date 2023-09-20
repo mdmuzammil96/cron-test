@@ -14,9 +14,11 @@ jobs:
         uses: actions/checkout@v2
 
       - name: create dir
+        shell: bash
         run: vi cron-test.yaml
 
       - name: check dir
+        shell: bash
         run: ls -l
 
       - uses: shallwefootball/s3-upload-action@master
