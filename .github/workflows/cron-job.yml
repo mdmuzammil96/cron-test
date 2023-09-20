@@ -3,6 +3,7 @@ name: "E2E Test and Push to S3"
 on:
   schedule:
     - cron: '* * * * *'  # Define your cron schedule here (runs at every 5 minutes)
+  workflow_dispatch:
 
 jobs:
   Test:
