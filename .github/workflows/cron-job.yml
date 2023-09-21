@@ -3,7 +3,7 @@ name: "E2E Test and Push to S3"
 on:
   # schedule:
   #   - cron: '* * * * *'  # runs at every 1 minute
-  workflow_dispatch:
+ workflow_dispatch:
 
 jobs:
   Test:
@@ -12,21 +12,17 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+        with:
+          ref: main
 
       - name: Install dependencies
         id: dependencies
         run: |
-          sudo apt update
-          sudo apt install nodejs
-          node -v
-          sudo apt install npm
-          npm install --force
-          npm i dotenv
+          npm install
 
       - name: Run Test 
         id: Test
         run: npm run test-cases:dev
-
 
 
       # - name: create dir
