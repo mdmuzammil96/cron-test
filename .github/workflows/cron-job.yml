@@ -27,7 +27,9 @@ jobs:
         run: |
           ls -l
           pwd
-          npm run test-cases
+          npm run test-cases:dev
+          ls -l
+          pwd
 
       # - name: create dir
       #   run: |
