@@ -18,7 +18,7 @@ jobs:
       - name: Install dependencies
         id: dependencies
         run: |
-          ls -l
+          ls -a
           pwd
           npm install
 
