@@ -24,16 +24,19 @@ jobs:
 
       - name: Run Test 
         id: Test
-        run: npm run test-cases
-
-      - name: create dir
         run: |
-          pwd
-          ls -l
-          cd /home/runner/work/cron-test/cron-test/
-          touch test.yaml
           ls -l
           pwd
+          npm run test-cases
+
+      # - name: create dir
+      #   run: |
+      #     pwd
+      #     ls -l
+      #     cd /home/runner/work/cron-test/cron-test/
+      #     touch test.yaml
+      #     ls -l
+      #     pwd
 
       # - uses: keithweaver/aws-s3-github-action@v1.0.0
       #   with:
