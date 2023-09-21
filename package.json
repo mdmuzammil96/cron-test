@@ -1,0 +1,25 @@
+{
+  "name": "ui-e2e-testing",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test-cases:stage": "cross-env ENV=STAGE npx playwright test tests",
+    "test-cases:dev": "cross-env ENV=DEV npx playwright test tests",
+    "test-cases:demo": "cross-env ENV=DEMO npx playwright test tests",
+    "test-cases:prod": "cross-env ENV=PROD npx playwright test tests"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.38.0",
+    "@types/node": "^20.6.2",
+    "monocart-reporter": "^1.7.9"
+  },
+  "dependencies": {
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.3.1",
+    "otpauth": "^9.1.4"
+  }
+}
