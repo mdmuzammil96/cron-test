@@ -17,15 +17,14 @@ jobs:
 
       - name: Install dependencies
         id: dependencies
+        shell: bash
         run: |
-          ls -a
-          pwd
-          npm install
+          npm install --force
+          npm i dotenv
 
       - name: Run Test 
         id: Test
         run: npm run test-cases:dev
-
 
       # - name: create dir
       #   run: |
