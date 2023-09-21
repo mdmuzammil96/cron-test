@@ -24,7 +24,7 @@ jobs:
 
       - name: Run Test 
         id: Test
-        run: npm run test-cases:dev
+        run: npm run test-cases
 
       - name: create dir
         run: |
