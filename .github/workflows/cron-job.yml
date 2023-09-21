@@ -16,20 +16,25 @@ jobs:
           ref: main
 
       - name: Install dependencies
-        id: dependencies
-        shell: bash
-        run: |
-          npm install --force
-          npm i dotenv
+        run: npm ci
 
-      - name: Run Test 
-        id: Test
-        run: |
-          ls -l
-          pwd
-          npm run test-cases:dev
-          ls -l
-          pwd
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
+
+      - name: Run Playwright tests
+        run: npx playwright test
+
+      - name: Run tests
+        run: npm run test-cases:dev
+
+      # - name: Run Test 
+      #   id: Test
+      #   run: |
+      #     ls -l
+      #     pwd
+      #     npm run test-cases:dev
+      #     ls -l
+      #     pwd
 
       # - name: create dir
       #   run: |
